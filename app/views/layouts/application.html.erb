@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Do</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="container">
+<div class="navbar-inner">
+<div class="row">
+
+  <% unless current_user.blank? %>
+      <%= render :partial => "users/header" %>
+  <% else %>
+      <%= render :partial => "sessions/header" %>
+  <% end %>
+  </div>
+</div>
+<div class="navbar-inner">
+<div class="navigation-container">
+  <div id="navigation">
+  </div>
+</div>
+<div class="container=fluid">
+
+  <div class="row-fluid">
+    <div class="span2">
+      <%= render :partial => "sidebar" %>
+    </div>
+    <div class="span10">
+
+      <%= yield %>
+    </div>
+  </div>
+</div>
+ </div>
+  <div class="navbar-inner">
+  <div id="footer">
+    <%= %>
+  </div>
+</div>
+
+
+</body>
+</html>

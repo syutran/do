@@ -1,0 +1,45 @@
+<%= form_for @user, :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <fieldset>
+      <legend>修改<i class="icon-user"></i><%= current_user.name %>的信息</legend>
+      <div class="control-group">
+        <%= f.label :name, class: "control-label" %>
+        <div class="controls">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :email, class: "control-label" %>
+        <div class="controls">
+          <%= f.text_field :email %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :avatar, class: "control-label" %>
+        <div class="controls">
+          <%= f.file_field :avatar %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :address, class: "control-label" %>
+        <div class="controls">
+          <%= f.text_field :address %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit " 更新 " %>
+        </div>
+      </div>
+    </fieldset>
+<% end %>
