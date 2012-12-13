@@ -6,7 +6,9 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.confirm.subject
   #
-  def confirm(umail)
+  def confirm(umail,user)
+    @user = user
+
     @greeting = "Hi"
 
     mail to: umail

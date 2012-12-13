@@ -10,8 +10,10 @@ Do::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-
+  get '/register' => "users#new"
+  get 'user_act' => "users#user_act"
   resources :users
+  match 'circles/search' => 'circles#search'
   resources :circles
 
   # The priority is based upon order of creation:

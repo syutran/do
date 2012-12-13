@@ -1,3 +1,5 @@
+<% unless current_user.blank? %>
 <h3>Hi !</h3>
 <h4><%= current_user.name %></i></h4>
 <%= link_to raw('<i class="icon-pencil"></i> edit profile'), edit_user_path(current_user), class: "btn"  %>
+<% end %>

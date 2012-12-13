@@ -8,14 +8,7 @@
 </head>
 <body class="container">
 <div class="navbar-inner">
-<div class="row">
-
-  <% unless current_user.blank? %>
-      <%= render :partial => "users/header" %>
-  <% else %>
-      <%= render :partial => "sessions/header" %>
-  <% end %>
-  </div>
+<%= render :partial => "/header" %>
 </div>
 <div class="navbar-inner">
 <div class="navigation-container">
