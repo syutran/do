@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
+  layout "special", :only => [:new, :user_act, :registered]
   def index
     @users = current_user
 
@@ -45,7 +44,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
 
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to registered_path }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -83,7 +82,21 @@ class UsersController < ApplicationController
   end
 
   def user_act
-    @user_id = params[:id]
-    @user_act = params[:code]
+    user_id = params[:id]
+    user_act = params[:code]
+    @user = User.find_by_active_code(user_act)
+    unless @user.blank?
+      @user.active_code = nil
+      @user.act = true
+      @user.save
+      session[:user_id] = @user.id
+      redirect_to edit_user_path(@user.id) 
+    else
+      render :text => "you access alread!"
+    end
   end
+  def registered
+
+  end
+
 end

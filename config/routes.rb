@@ -11,6 +11,7 @@ Do::Application.routes.draw do
     delete 'logout' => :destroy
   end
   get '/register' => "users#new"
+  get 'registered' => "users#registered"
   get 'user_act' => "users#user_act"
   resources :users
   match 'circles/search' => 'circles#search'

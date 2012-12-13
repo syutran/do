@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_url(user.id)
       else
-      redirect_to user_act_url
+        render :text => "your account isn't actived!"
       end
 
     else
