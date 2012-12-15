@@ -12,9 +12,11 @@ Do::Application.routes.draw do
   end
   get '/register' => "users#new"
   get 'registered' => "users#registered"
+  match 'user_info' => "users#info"
   get 'user_act' => "users#user_act"
   resources :users
   match 'circles/search' => 'circles#search'
+  match 'circles_join_me' => 'circles#join_me'
   resources :circles
 
   # The priority is based upon order of creation:

@@ -95,6 +95,11 @@ class UsersController < ApplicationController
       render :text => "you access alread!"
     end
   end
+
+  def info
+    @user = User.find(params[:user_id])
+  end
+
   def registered
 
   end

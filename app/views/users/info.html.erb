@@ -1,0 +1,4 @@
+  <%= @user.name %>
+  <%= @user.email %>
+  <%= @user.address %>
+  <%= button_to raw('<i class="icon-user"> </i>'), circles_join_me_path( id: @user.id), class: 'btn' %>
