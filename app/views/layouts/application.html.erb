@@ -10,29 +10,25 @@
 <div class="navbar-inner">
 <%= render :partial => "/header" %>
 </div>
+<div class="navbar">
 <div class="navbar-inner">
-<div class="navigation-container">
-  <div id="navigation">
-  </div>
-</div>
-<div class="container=fluid">
-
-  <div class="row-fluid">
-    <div class="span2">
+<div class="row-fluid">
+    <div class="span9">
+       <%= yield %>
+    </div>
+    <div class="span3 well">
       <%= render :partial => "sidebar" %>
     </div>
-    <div class="span10">
-
-      <%= yield %>
-    </div>
-  </div>
 </div>
+  </div>
  </div>
+
   <div class="navbar-inner">
-  <div id="footer">
-    <%= %>
+  <div id="footer" class="span12">
+    <%= %> footer
   </div>
-</div>
+                        </div>
+
 
 
 </body>
