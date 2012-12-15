@@ -273,10 +273,10 @@ rails 3.2.9
 
   2 用户互加好友
 
-== tables ===========================================
-  1 User
+== tables
+1 User
 
-  2 Circles
+2 Circles
     t.integer :user_id
     t.string :title
     t.integer :friend
@@ -285,7 +285,7 @@ rails 3.2.9
 
     t.timestamps
 
-  3 Messages
+3 Messages
       t.integer :from_id
       t.integer :to_id
       t.string :title
@@ -295,7 +295,7 @@ rails 3.2.9
 
       t.timestamps
 
-== 涉及的插件技术 ======================================
+== 涉及的插件技术
 
 a. paperclip 上传头像
   $ sudo apt-get install imagemagick
