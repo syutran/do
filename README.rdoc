@@ -259,12 +259,12 @@ vendor
   External libraries that the application depends on. Also includes the plugins
   subdirectory. If the app has frozen rails, those gems also go here, under
   vendor/rails/. This directory is in the load path.
-== 环境 ==============================================
-ubuntu 12.04
-ruby 1.9.3
-rails 3.2.9
+== 环境
+* ubuntu 12.04
+* ruby 1.9.3
+* rails 3.2.9
 
-== 项目 ==============================================
+== 项目
   1 创建用户鹰架
 
     rails g scaffold User
