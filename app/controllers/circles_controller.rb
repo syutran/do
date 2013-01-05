@@ -13,6 +13,7 @@ class CirclesController < ApplicationController
     p=params[:user_id]
     circle = Circle.where("user_id = ? and friend = ?", current_user.id, p)
     if circle.blank?
+      message = Message.new()
       respond_to do |format|
         format.js
       end

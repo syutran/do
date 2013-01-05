@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def avatar_url(user)
+  def avatar_url(user,size)
     if user.avatar.present?
-      user.avatar
+      user.avatar(size)
     else
       default_url = "#{root_url}images/guest.png"
       gravatar_id = Digest::MD5.hexdigest(user.email.downcase)

@@ -1,4 +1,7 @@
 Do::Application.routes.draw do
+  resources :categories
+
+
   # get "sessions/new"
 
   # get "sessions/create"

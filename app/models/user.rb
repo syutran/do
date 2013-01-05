@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
 
   has_attached_file :avatar, :styles => { :medium => "120x120>", :thumb => "80:80>", :mini => "40x40>"}
+  has_many :categories
   has_secure_password
 
   before_create do |user|

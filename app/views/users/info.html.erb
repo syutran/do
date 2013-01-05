@@ -1,4 +1,23 @@
+
+<div class="span7 offset1 ">
+<fieldset>
+  <legend>详细信息</legend>
+  <div class="control-group">
+   <div class="control-label"></div>
+    <div class="controls" >
+      <%= image_tag avatar_url(@user, :medium) %>
+    </div>
+  </div>
+  <div class="row">
+  <div class="control-group">
+    <div class="control-label">名字</div>
+    <div class="controls">
   <%= @user.name %>
+    </div>
+  </div>
+    </div>
   <%= @user.email %>
   <%= @user.address %>
-  <%= button_to raw('<i class="icon-user"> </i>'), circles_join_me_path( id: @user.id), class: 'btn' %>
+  <%= button_to "添加#{@user.name}为好友", circles_join_me_path(id: @user.id), :class => "btn" %>
+</fieldset>
+  </div>

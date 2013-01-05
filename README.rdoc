@@ -294,6 +294,29 @@ vendor
       t.datetime :create_time
 
       t.timestamps
+4 Depot
+	t.integer storage_id
+	t.integer user_id
+	t.integer rule_id
+	t.integer category_id
+	t.string typies
+	t.text title
+	t.text item_a
+	t.text item_b
+	t.text item_c
+	t.text item_d
+	t.text item_e
+	t.text item_f
+	t.text item_g
+	t.text item_h
+	t.text item_i
+	t.text item_j
+	t.string right_key
+	t.string done_key
+	t.integer need_time
+	t.integer record_id
+	t.integer session_id
+
 
 == 涉及的插件技术
 
