@@ -1,20 +1,15 @@
-<h1>Listing categories</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h3>Listing categories</h3>
 
 <% @categories.each do |category| %>
-  <tr>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="row">
+    Super Category:<%= category.sup_category %>
+    Category Title:<%= category.title %>
+  </div>
+    <%= link_to 'Show', category %>
+    <%= link_to 'Edit', edit_category_path(category) %>
+    <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+  
 <% end %>
-</table>
 
 <br />
 

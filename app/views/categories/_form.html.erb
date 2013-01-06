@@ -1,17 +1,41 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<%= form_for(@category,:html=>{:class=>"form-horizontal"}) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <fieldset>
+    <legend>Create New Category</legend>
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-      <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% @category.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control-group">
+      <label class="control-label" for="category_title">Category Title</label>
+      <div class="controls">
+        <%= f.text_field :title, :id => "category_title" %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="control-group">
+      <label class="control-label" for="category_sup_category">Super Category</label>
+      <div class="controls">
+        <%= f.select :parent_id, @categories %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="category_discription">Discription</label>
+      <div class="controls">
+        <%= f.text_area :discription, :rows=>3 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "添加", :class=>"btn" %>
+    </div>
   </div>
-<% end %>
+    </fieldset>
+  <% end %>

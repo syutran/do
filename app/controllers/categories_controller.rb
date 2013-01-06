@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = current_user.categories.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +24,8 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   # GET /categories/new.json
   def new
-    @category = Category.new
+    @category = current_user.categories.new
+    @categories = current_user.categories.all.collect{|c|[c.title,c.id]}
 
     respond_to do |format|
       format.html # new.html.erb
