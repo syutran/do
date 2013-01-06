@@ -21,9 +21,9 @@
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label" for="category_sup_category">Super Category</label>
+      <label class="control-label" for="category_parent_id">Super Category</label>
       <div class="controls">
-        <%= f.select :parent_id, @categories %>
+        <%= f.select :parent_id, @categories.collect{|c| [c.title,c.id]}.unshift(["根类", 0]) %>
       </div>
     </div>
     <div class="control-group">
