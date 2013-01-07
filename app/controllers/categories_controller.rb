@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = current_user.categories.all
+    @categories = current_user.categories
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = current_user.categories.new
-    @categories = current_user.categories.all
+    @categories = current_user.categories.all.each { |c| c.ancestry = c.ancestry.to_s + (c.ancestry != nil ? "/" : '') + c.id.to_s}.sort {|x,y| x.ancestry <=> y.ancestry}.map{ |c| ["->" * (c.depth - 1) + c.title,c.id] }.unshift(["-- none --", nil])
 
     respond_to do |format|
       format.html # new.html.erb

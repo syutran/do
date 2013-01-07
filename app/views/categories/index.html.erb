@@ -1,16 +1,22 @@
 <h3>Listing categories</h3>
-
-<% @categories.each do |category| %>
-  <div class="row">
-    Super Category:<%= category.parent.title if category.parent %>
-    Category Title:<%= category.title %>
-  </div>
-    <%= link_to 'Show', category %>
-    <%= link_to 'Edit', edit_category_path(category) %>
-    <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
-  
+<ul>
+<% @categories.roots.each do |category| %>
+  <li><%= link_to h(category.title), category %>
+  <% unless category.children.empty? %>
+    <ul>
+      <% category.children.each do |subcategory| %>
+        <li><%= link_to h(subcategory.title), subcategory %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+  </li>
 <% end %>
+</ul>
 
-<br />
+<% @categories.arrange_as_array.each do |category| %>
+
+<%= category.title %>
+
+<% end %>
 
 <%= link_to 'New Category', new_category_path %>
