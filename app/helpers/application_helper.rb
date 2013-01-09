@@ -8,4 +8,8 @@ module ApplicationHelper
       "http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}"
     end
   end
+
+  def user_categories(user)
+    user.categories.all.each { |c| c.ancestry = c.ancestry.to_s + (c.ancestry != nil ? "/" : '') + c.id.to_s}.sort {|x,y| x.ancestry <=> y.ancestry}.map{ |c| ["->" * (c.depth - 1) + c.title,c.id] }
+  end
 end

@@ -36,6 +36,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
+    @categories = current_user.categories.all.each { |c| c.ancestry = c.ancestry.to_s + (c.ancestry != nil ? "/" : '') + c.id.to_s}.sort {|x,y| x.ancestry <=> y.ancestry}.map{ |c| ["->" * (c.depth - 1) + c.title,c.id] }.unshift(["-- none --", nil])
   end
 
   # POST /categories
@@ -58,7 +59,7 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.json
   def update
     @category = Category.find(params[:id])
-
+    
     respond_to do |format|
       if @category.update_attributes(params[:category])
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }

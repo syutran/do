@@ -11,10 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130106134942) do
+ActiveRecord::Schema.define(:version => 20130108060252) do
 
-# Could not dump table "categories" because of following StandardError
-#   Unknown type '' for column 'parent_id'
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.integer  "parent_id"
+    t.string   "tags"
+    t.integer  "user_id"
+    t.text     "discription"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "ancestry"
+  end
+
+  add_index "categories", ["ancestry"], :name => "index_categories_on_ancestry"
 
   create_table "circles", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +32,28 @@ ActiveRecord::Schema.define(:version => 20130106134942) do
     t.integer  "friend"
     t.string   "friend_name"
     t.text     "discription"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "depots", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "typies"
+    t.text     "title"
+    t.text     "item_a"
+    t.text     "item_b"
+    t.text     "item_c"
+    t.text     "item_d"
+    t.text     "item_e"
+    t.text     "item_f"
+    t.text     "item_g"
+    t.text     "item_h"
+    t.text     "item_i"
+    t.text     "item_j"
+    t.string   "keys"
+    t.integer  "need_time"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

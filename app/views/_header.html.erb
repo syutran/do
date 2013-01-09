@@ -34,6 +34,12 @@
         <%= link_to raw('<i class="icon-pencil"></i> edit profile'), edit_user_path(current_user), :class => "btn" %>
       </div>
 
+      <% elsif ["categories","depots"].include? self.controller_name %>
+        <div class="btn-group">
+          <a href="/depots" class="btn"><i class="icon-th"></i> 库</a>
+          <%= link_to "新建", new_depot_path, :class => "btn" %>
+
+
     <% end %>
   </div>
 <% else %>

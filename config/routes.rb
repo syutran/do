@@ -1,4 +1,7 @@
 Do::Application.routes.draw do
+  resources :depots
+
+
   resources :categories
 
 

@@ -1,6 +1,43 @@
-<h1>Editing category</h1>
 
-<%= render 'form' %>
+<%= form_for(@category,:html=>{:class=>"form-horizontal"}) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <fieldset>
+    <legend>编辑分类</legend>
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+        <ul>
+          <% @category.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control-group">
+      <label class="control-label" for="category_title">Category Title</label>
+      <div class="controls">
+        <%= f.text_field :title, :id => "category_title" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="category_parent_id">Super Category</label>
+      <div class="controls">
+        <%= f.select :parent_id, @categories %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="category_discription">Discription</label>
+      <div class="controls">
+        <%= f.text_area :discription, :rows=>3 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "更新", :class=>"btn" %>
+    </div>
+  </div>
+    </fieldset>
+  <% end %>
+
