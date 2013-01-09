@@ -28,19 +28,7 @@
     </div>
     <div id="subform"></div>
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $("#depot_typies_single").click(function(){
-          $("#subform").html("<%=j render(:partial => "form_single", :locals => {:f => f}) %>");
-        });
-        $("#depot_typies_much").click(function(){
-          $("#subform").html("<%=j render(:partial => "form_much", :locals =>{:f => f}) %>");
-        });
-        $("#depot_typies_judge").click(function(){
-          $("#subform").html("<%=j render(:partial => "form_judge", :locals => {:f => f}) %>");
-        });
-      })
-    </script>
+
 
   </fieldset>
 <% end %>
