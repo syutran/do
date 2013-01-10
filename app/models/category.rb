@@ -3,6 +3,7 @@ class Category < ActiveRecord::Base
   validates_presence_of :title, :message => "Title can't be nill"
   validates_presence_of :user_id
   belongs_to :user
+  has_many :depots
   has_ancestry
   def self.arrange_as_array(options = {}, hash = nil)
     hash ||= arrange(options)

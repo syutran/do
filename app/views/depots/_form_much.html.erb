@@ -1,16 +1,15 @@
-# encoding: utf-8
 <div id="option_a">
   <div class="control-group">
     <label class="control-label">A</label>
     <div class="controls">
       <%= f.text_area :item_a, :rows => 3%>
-      <%= f.radio_button :keys, "A" %>
+      <%= f.check_box :keys, {:id => "depot_keys_a"}, "A","" %>
     </div>
   </div>
   <div class="control-group" id="btn_a">
     <div class="controls">
 
-      <button class="btn" type="button" id="btn_add_b">add B</button>
+      <button class="btn" type="button" id="btn_add_b">Add B</button>
 
     </div>
   </div>
@@ -18,9 +17,10 @@
 <div id="option_b">
   <div class="control-group">
     <label class="control-label">B</label>
+
     <div class="controls">
       <%= f.text_area :item_b, :rows => 3 %>
-      <%= f.radio_button :keys, "B" %>
+      <%= f.check_box :keys, {:id => "depot_keys_b"}, "B", "" %>
     </div>
   </div>
   <div class="control-group" id="btn_b">
@@ -38,7 +38,7 @@
 
     <div class="controls">
       <%= f.text_area :item_c, :rows => 3 %>
-      <%= f.radio_button :keys, "C" %>
+      <%= f.check_box :keys, {:id => "depot_keys_c"}, "C", "" %>
     </div>
   </div>
   <div class="control-group" id="btn_c">
@@ -56,7 +56,7 @@
 
     <div class="controls">
       <%= f.text_area :item_d, :rows => 3 %>
-      <%= f.radio_button :keys, "D" %>
+      <%= f.check_box :keys, {:id => "depot_keys_d"}, "D", "" %>
     </div>
   </div>
   <div class="control-group" id="btn_d">
@@ -74,7 +74,7 @@
 
     <div class="controls">
       <%= f.text_area :item_e, :rows => 3 %>
-      <%= f.radio_button :keys, "E" %>
+      <%= f.check_box :keys, {:id => "depot_keys_e"}, "E", "" %>
     </div>
   </div>
   <div class="control-group" id="btn_e">
@@ -92,7 +92,7 @@
 
     <div class="controls">
       <%= f.text_area :item_f, :rows => 3 %>
-      <%= f.radio_button :keys, "F" %>
+      <%= f.check_box :keys, {:id => "depot_keys_f"}, "F","" %>
     </div>
   </div>
   <div class="control-group" id="btn_f">
@@ -110,7 +110,7 @@
 
     <div class="controls">
       <%= f.text_area :item_g, :rows => 3 %>
-      <%= f.radio_button :keys, "G" %>
+      <%= f.check_box :keys, {:id => "depot_keys_g"}, "G", "" %>
     </div>
   </div>
   <div class="control-group" id="btn_g">
@@ -128,7 +128,7 @@
 
     <div class="controls">
       <%= f.text_area :item_h, :rows => 3 %>
-      <%= f.radio_button :keys, "H" %>
+      <%= f.check_box :keys, {:id => "depot_keys_h"}, "H", "" %>
     </div>
   </div>
   <div class="control-group" id="btn_h">
@@ -146,7 +146,7 @@
 
     <div class="controls">
       <%= f.text_area :item_i, :rows => 3 %>
-      <%= f.radio_button :keys, "I" %>
+      <%= f.check_box :keys, {:id => "depot_keys_i"}, "I", "" %>
     </div>
   </div>
   <div class="control-group" id="btn_i">
@@ -164,7 +164,7 @@
 
     <div class="controls">
       <%= f.text_area :item_j, :rows => 3 %>
-      <%= f.radio_button :keys, "J" %>
+      <%= f.check_box :keys, {:id => "depot_keys_j"}, "J", "" %>
     </div>
   </div>
   <div class="control-group" id="btn_j">

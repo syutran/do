@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "120x120>", :thumb => "80:80>", :mini => "40x40>"}
   has_many :categories
+  has_many :depots
   has_secure_password
 
   before_create do |user|

@@ -1,20 +1,22 @@
-<h1>Listing depots</h1>
+<h3>题库列表</h3>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @depots.each do |depot| %>
-  <tr>
-    <td><%= link_to 'Show', depot %></td>
-    <td><%= link_to 'Edit', edit_depot_path(depot) %></td>
-    <td><%= link_to 'Destroy', depot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="media">
+    <a class="pull-left" href="#">
+      <img class="media-object" data-src="holder.js/64x64">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= depot.category.title %></h4>
+      <div class="media">
+        <%= depot.title %>
+      </div>
+    </div>
+  </div>
+    <%= link_to 'Show', depot %>
+    <%= link_to 'Edit', edit_depot_path(depot) %>
+    <%= link_to 'Destroy', depot, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
-</table>
 
 <br />
 
