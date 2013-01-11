@@ -1,5 +1,95 @@
 <p id="notice"><%= notice %></p>
-
-
+<div class="row">
+  <div class="span2">分类</div>
+  <div class="span6">
+    <%= @depot.category.title %>
+  </div>
+</div>
+<div class="row">
+  <div class="span2">标题</div>
+  <div class="span6">
+    <%= @depot.title %>
+  </div>
+</div>
+<% if @depot.item_a?  %>
+  <div class="row">
+    <div class="span2">A</div>
+    <div class="span6">
+      <%= @depot.item_a %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_b?  %>
+  <div class="row">
+    <div class="span2">B</div>
+    <div class="span6">
+      <%= @depot.item_b %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_c? %>
+  <div class="row">
+    <div class="span2">C</div>
+    <div class="span6">
+      <%= @depot.item_c %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_d?  %>
+  <div class="row">
+    <div class="span2">D</div>
+    <div class="span6">
+      <%= @depot.item_d %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_e? %>
+  <div class="row">
+    <div class="span2">E</div>
+    <div class="span6">
+      <%= @depot.item_e %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_f? %>
+  <div class="row">
+    <div class="span2">F</div>
+    <div class="span6">
+      <%= @depot.item_f %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_g? %>
+  <div class="row">
+    <div class="span2">G</div>
+    <div class="span6">
+      <%= @depot.item_g %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_h? %>
+  <div class="row">
+    <div class="span2">H</div>
+    <div class="span6">
+      <%= @depot.item_h %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_i? %>
+  <div class="row">
+    <div class="span2">I</div>
+    <div class="span6">
+      <%= @depot.item_i %>
+    </div>
+  </div>
+<% end %>
+<% if @depot.item_j? %>
+  <div class="row">
+    <div class="span2">J</div>
+    <div class="span6">
+      <%= @depot.item_j %>
+    </div>
+  </div>
+<% end %>
 <%= link_to 'Edit', edit_depot_path(@depot) %> |
 <%= link_to 'Back', depots_path %>

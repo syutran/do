@@ -1,6 +1,54 @@
-<h1>Editing depot</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @depot %> |
-<%= link_to 'Back', depots_path %>
+<%= form_for @depot, :html => {:class => "form-horizontal"} do |f| %>
+  <fieldset>
+    <legend> 编辑 </legend>
+    <div class="control-group">
+      <label class="control-label" for="depot_category_id">分类</label>
+      <div class="controls">
+        <%= f.select :category_id, user_categories(current_user) %>
+        <%= f.hidden_field :owner_id,:value => current_user.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="depot_title">题目</label>
+      <div class="controls">
+        <%= f.text_area :title, :rows => 5 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="depot_typies">类型</label>
+      <div class="controls"><div class="form-inline">
+        <%= f.radio_button :typies, "single" %> <label for="depot_typies_single">单选题</label>
+        <%= f.radio_button :typies, "much" %> <label for="depot_typies_much">多选题</label>
+        <%= f.radio_button :typies, "judge" %> <label for="depot_typies_judge">判断题</label>
+      </div></div>
+    </div>
+    <div id="subform">
+      <%= render(:partial => "form_single", :locals => {:f => f }) if @depot.typies == "single" %>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#depot_typies_single").click(function () {
+          $("#subform").html("<%=j render(:partial => "form_single", :locals => {:f => f}) %>");
+        });
+        $("#depot_typies_much").click(function () {
+          $("#subform").html("<%=j render(:partial => "form_much", :locals =>{:f => f}) %>");
+        });
+        $("#depot_typies_judge").click(function () {
+          $("#subform").html("<%=j render(:partial => "form_judge", :locals => {:f => f}) %>");
+        });
+      });
+    </script>
+    <div class="control-group">
+      <label class="control-label" for="depot_readspeed">读题速度</label>
+      <div class="controls">
+        <%= f.select :readspeed, read_speed %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "create", :class => "btn" %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
