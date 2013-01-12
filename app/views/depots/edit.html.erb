@@ -1,3 +1,4 @@
+# encoding: utf-8
 <%= form_for @depot, :html => {:class => "form-horizontal"} do |f| %>
   <fieldset>
     <legend> 编辑 </legend>
@@ -24,18 +25,24 @@
       </div></div>
     </div>
     <div id="subform">
-      <%= render(:partial => "form_single", :locals => {:f => f }) if @depot.typies == "single" %>
+      <% if @depot.typies == "single" %>
+      <%= render(:partial => "edit_single", :locals => {:f => f }) %>
+    <% elsif @depot.typies == "much" %>
+      <%= render(:partial => "edit_much", :locals => {:f => f}) %>
+      <%  elsif @depot.typies == "judge" %>
+      <%= render :partial => "edit_judge", :locals => {:f => f} %>
+    <% end %>
     </div>
     <script type="text/javascript">
       $(document).ready(function () {
         $("#depot_typies_single").click(function () {
-          $("#subform").html("<%=j render(:partial => "form_single", :locals => {:f => f}) %>");
+          $("#subform").html("<%=j render(:partial => "edit_single", :locals => {:f => f}) %>");
         });
         $("#depot_typies_much").click(function () {
-          $("#subform").html("<%=j render(:partial => "form_much", :locals =>{:f => f}) %>");
+          $("#subform").html("<%=j render(:partial => "edit_much", :locals =>{:f => f}) %>");
         });
         $("#depot_typies_judge").click(function () {
-          $("#subform").html("<%=j render(:partial => "form_judge", :locals => {:f => f}) %>");
+          $("#subform").html("<%=j render(:partial => "edit_judge", :locals => {:f => f}) %>");
         });
       });
     </script>
