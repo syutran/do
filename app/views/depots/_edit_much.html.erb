@@ -3,10 +3,10 @@
     <label class="control-label">A</label>
     <div class="controls">
       <%= f.text_area :item_a, :rows => 3%>
-      <%= f.check_box :keys, {:id => "depot_keys_a"}, "A","" %>
+      <%= f.check_box :key_a, {:id => "depot_keys_a"}, "A","" %>
     </div>
   </div>
-  <div class="control-group" id="btn_a">
+  <div class="control-group" id="btn_con_a">
     <div class="controls">
       <button class="btn" type="button" id="btn_add_b">Add B</button>
     </div>
@@ -18,10 +18,10 @@
 
     <div class="controls">
       <%= f.text_area :item_b, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_b"}, "B", "" %>
+      <%= f.check_box :key_b, {:id => "depot_keys_b"}, "B", "" %>
     </div>
   </div>
-  <div class="control-group" id="btn_b">
+  <div class="control-group" id="btn_con_b">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_add_c">Add C</button>
@@ -36,10 +36,10 @@
 
     <div class="controls">
       <%= f.text_area :item_c, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_c"}, "C", "" %>
+      <%= f.check_box :key_c, {:id => "depot_keys_c"}, "C", "" %>
     </div>
   </div>
-  <div class="control-group" id="btn_c">
+  <div class="control-group" id="btn_con_c">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_add_d">Add D</button>
@@ -54,10 +54,10 @@
 
     <div class="controls">
       <%= f.text_area :item_d, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_d"}, "D", "" %>
+      <%= f.check_box :key_d, {:id => "depot_keys_d"}, "D", "" %>
     </div>
   </div>
-  <div class="control-group" id="btn_d">
+  <div class="control-group" id="btn_con_d">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_add_e">Add E</button>
@@ -72,10 +72,10 @@
 
     <div class="controls">
       <%= f.text_area :item_e, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_e"}, "E", "" %>
+      <%= f.check_box :key_e, {:id => "depot_keys_e"}, "E", "" %>
     </div>
   </div>
-  <div class="control-group" id="btn_e">
+  <div class="control-group" id="btn_con_e">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_add_f">Add F</button>
@@ -90,10 +90,10 @@
 
     <div class="controls">
       <%= f.text_area :item_f, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_f"}, "F","" %>
+      <%= f.check_box :key_f, {:id => "depot_keys_f"}, "F","" %>
     </div>
   </div>
-  <div class="control-group" id="btn_f">
+  <div class="control-group" id="btn_con_f">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_add_g">Add G</button>
@@ -108,10 +108,10 @@
 
     <div class="controls">
       <%= f.text_area :item_g, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_g"}, "G", "" %>
+      <%= f.check_box :key_g, {:id => "depot_keys_g"}, "G", "" %>
     </div>
   </div>
-  <div class="control-group" id="btn_g">
+  <div class="control-group" id="btn_con_g">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_add_h">Add H</button>
@@ -126,10 +126,10 @@
 
     <div class="controls">
       <%= f.text_area :item_h, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_h"}, "H", "" %>
+      <%= f.check_box :key_h, {:id => "depot_keys_h"}, "H", "" %>
     </div>
   </div>
-  <div class="control-group" id="btn_h">
+  <div class="control-group" id="btn_con_h">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_add_i">Add I</button>
@@ -144,10 +144,10 @@
 
     <div class="controls">
       <%= f.text_area :item_i, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_i"}, "I", "" %>
+      <%= f.check_box :key_i, {:id => "depot_keys_i"}, "I", "" %>
     </div>
   </div>
-  <div class="control-group" id="btn_i">
+  <div class="control-group" id="btn_con_i">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_add_j">Add J</button>
@@ -162,10 +162,10 @@
 
     <div class="controls">
       <%= f.text_area :item_j, :rows => 3 %>
-      <%= f.check_box :keys, {:id => "depot_keys_j"}, "J", "" %>
+      <%= f.check_box :key_j, {:id => "depot_keys_j"}, "J", "" %>
     </div>
   </div>
-  <div class="control-group" id="btn_j">
+  <div class="control-group" id="btn_con_j">
     <div class="controls">
       <div class="btn-group">
         <button class="btn" type="button" id="btn_del_j">delete J</button>
@@ -177,122 +177,133 @@
 
 <script type="text/javascript">
   $(document).ready(function () {
-    if (("#depot_item_b").value == null) {
+      $("[id^='btn_con_']").hide();
+
+    if ($("#depot_item_b").val().length < 1) {
       $("#option_b").hide();
+      $("#btn_con_a").show();
     }
-    if (("#depot_item_c").value == null) {
+    if ($("#depot_item_c").val().length < 1) {
       $("#option_c").hide();
+      $("#btn_con_b").show();
     }
-    if (("#depot_item_d").value == null) {
+    if ($("#depot_item_d").val().length < 1) {
       $("#option_d").hide();
+      $("#btn_con_c").show();
     }
-    if (("#depot_item_e").value == null) {
+    if ($("#depot_item_e").val().length < 1) {
       $("#option_e").hide();
+      $("#btn_con_d").show();
     }
-    if (("#depot_item_f").value == null) {
-      $("#option_f").hide();
+    if ($("#depot_item_f").val().length < 1) {
+    $("#option_f").hide();
+    $("#btn_con_e").show();
     }
-    if (("#depot_item_g").value == null) {
+    if ($("#depot_item_g").val().length < 1) {
       $("#option_g").hide();
+      $("#btn_con_f").show();
     }
-    if (("#depot_item_h").value == null) {
+    if ($("#depot_item_h").val().length < 1) {
       $("#option_h").hide();
+      $("#btn_con_g").show();
     }
-    if (("#depot_item_i").value == null) {
+    if ($("#depot_item_i").val().length < 1) {
       $("#option_i").hide();
+      $("#btn_con_h").show();
     }
-    if (("#depot_item_j").value == null) {
+    if ($("#depot_item_j").val().length < 1) {
       $("#option_j").hide();
+      $("btn_con_i").show();
     }
     $("#btn_add_b").on('click',function(){
-      $("#btn_a").hide();
+      $("#btn_con_a").hide();
       $("#option_b").show(1000);
     });
     $("#btn_add_c").click(function(){
-      $("#btn_b").hide();
+      $("#btn_con_b").hide();
       $("#option_c").show(1000);
     });
     $("#btn_add_d").click(function(){
-      $("#btn_c").hide();
+      $("#btn_con_c").hide();
       $("#option_d").show(1000);
     });
     $("#btn_add_e").click(function(){
-      $("#btn_d").hide();
+      $("#btn_con_d").hide();
       $("#option_e").show(1000);
     });
     $("#btn_add_f").click(function(){
-      $("#btn_e").hide();
+      $("#btn_con_e").hide();
       $("#option_f").show(1000);
     });
     $("#btn_add_g").click(function(){
-      $("#btn_f").hide();
+      $("#btn_con_f").hide();
       $("#option_g").show(1000);
     });
     $("#btn_add_h").click(function(){
-      $("#btn_g").hide();
+      $("#btn_con_g").hide();
       $("#option_h").show(1000);
     });
     $("#btn_add_i").click(function(){
-      $("#btn_h").hide();
+      $("#btn_con_h").hide();
       $("#option_i").show(1000);
     });
     $("#btn_add_j").click(function(){
-      $("#btn_i").hide();
+      $("#btn_con_i").hide();
       $("#option_j").show(1000);
     });
     $("#btn_del_b").click(function(){
       $("#depot_keys_b").attr("checked", false);
       $("#depot_item_b").val("");
       $("#option_b").hide(500);
-      $("#btn_a").show(500);
+      $("#btn_con_a").show(500);
     });
     $("#btn_del_c").click(function(){
       $("#depot_keys_c").attr("checked", false);
       $("#depot_item_c").val("");
       $("#option_c").hide(500);
-      $("#btn_b").show(500);
+      $("#btn_con_b").show(500);
     });
     $("#btn_del_d").click(function(){
       $("#depot_keys_d").attr("checked", false);
       $("#depot_item_d").val("");
       $("#option_d").hide(500);
-      $("#btn_c").show(500);
+      $("#btn_con_c").show(500);
     });
     $("#btn_del_e").click(function(){
       $("#depot_keys_e").attr("checked", false);
       $("#depot_item_e").val("");
       $("#option_e").hide(500);
-      $("#btn_d").show(500);
+      $("#btn_con_d").show(500);
     });
     $("#btn_del_f").click(function(){
       $("#depot_keys_f").attr("checked", false);
       $("#depot_item_f").val("");
       $("#option_f").hide(500);
-      $("#btn_e").show(500);
+      $("#btn_con_e").show(500);
     });
     $("#btn_del_g").click(function(){
       $("#depot_keys_g").attr("checked", false);
       $("#depot_item_g").val("");
       $("#option_g").hide(500);
-      $("#btn_f").show(500);
+      $("#btn_con_f").show(500);
     });
     $("#btn_del_h").click(function(){
       $("#depot_keys_h").attr("checked", false);
       $("#depot_item_h").val("");
       $("#option_h").hide(500);
-      $("#btn_g").show(500);
+      $("#btn_con_g").show(500);
     });
     $("#btn_del_i").click(function(){
       $("#depot_keys_i").attr("checked", false);
       $("#depot_item_i").val("");
       $("#option_i").hide(500);
-      $("#btn_h").show(500);
+      $("#btn_con_h").show(500);
     });
     $("#btn_del_j").click(function(){
       $("#depot_keys_j").attr("checked", false);
       $("#depot_item_j").val("");
       $("#option_j").hide(500);
-      $("#btn_i").show(500);
+      $("#btn_con_i").show(500);
     });
   })
 
