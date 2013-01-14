@@ -177,35 +177,42 @@
 
 <script type="text/javascript">
   $(document).ready(function () {
-    if (!("#depot_item_b").val().length < 1 ) {
-      $("#option_b").hide();
-      return false;
-    }
-    if (("#depot_item_c").val().length < 1 ) {
-      $("#option_c").hide();
-      return false;
-    }
-    if (("#depot_item_d").val().length < 1) {
-      $("#option_d").hide();
-      return false;
-    }
-    if (("#depot_item_e").val().length <1) {
-      $("#option_e").hide();
-    }
-    if (("#depot_item_f").value == null) {
-      $("#option_f").hide();
-    }
-    if (("#depot_item_g").value == null) {
-      $("#option_g").hide();
-    }
-    if (("#depot_item_h").value == null) {
-      $("#option_h").hide();
-    }
-    if (("#depot_item_i").value == null) {
-      $("#option_i").hide();
-    }
-    if (("#depot_item_j").value == null) {
+    $("[id^='btn']").hide();
+    if ($("#depot_item_j").val().length < 1) {
       $("#option_j").hide();
+      $("#btn_i").show();
+    }
+    if ($("#depot_item_i").val().length < 1) {
+      $("#option_i").hide();
+      $("#btn_h").show();
+    }
+    if ($("#depot_item_h").val().length < 1) {
+      $("#option_h").hide();
+      $("#btn_g").show();
+    }
+    if ($("#depot_item_g").val().length < 1) {
+      $("#option_g").hide();
+      $("#btn_f").show();
+    }
+    if ($("#depot_item_f").val().length < 1) {
+      $("#option_f").hide();
+      $("#btn_e").show();
+    }
+    if ($("#depot_item_e").val().length < 1) {
+      $("#option_e").hide();
+      $("#btn_d").show();
+    }
+    if ($("#depot_item_d").val().length < 1) {
+      $("#option_d").hide();
+      $("#btn_c").show();
+    }
+    if ($("#depot_item_c").val().length < 1) {
+      $("#option_c").hide();
+      $("#btn_b").show();
+    }
+    if ($("#depot_item_b").val().length < 1) {
+      $("#option_b").hide();
+      $("#btn_a").show();
     }
     $("#btn_add_b").on('click',function(){
       $("#btn_a").hide();

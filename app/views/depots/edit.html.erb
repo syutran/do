@@ -26,7 +26,7 @@
     </div>
     <div id="subform">
       <% if @depot.typies == "single" %>
-      <%= render(:partial => "edit_single", :locals => {:f => f }) %>
+      <%= render(:partial => "edit_single", :locals => {:f => f}, :object => @depot) %>
     <% elsif @depot.typies == "much" %>
       <%= render(:partial => "edit_much", :locals => {:f => f}) %>
       <%  elsif @depot.typies == "judge" %>
