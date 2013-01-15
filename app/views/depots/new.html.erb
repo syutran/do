@@ -19,8 +19,8 @@
       <label class="control-label" for="depot_typies">类型</label>
       <div class="controls"><div class="form-inline">
         <%= f.radio_button :typies, "single" %> <label for="depot_typies_single">单选题</label>
-        <%= f.radio_button :typies, "much" %> <label for="depot_typies_much">多选题</label>
-        <%= f.radio_button :typies, "judge" %> <label for="depot_typies_judge">判断题</label>
+        <%= f.radio_button :typies, "multiple" %> <label for="depot_typies_multiple">多选题</label>
+        <%= f.radio_button :typies, "judgment" %> <label for="depot_typies_judgment">判断题</label>
       </div></div>
     </div>
     <div id="subform"></div>
@@ -29,10 +29,10 @@
         $("#depot_typies_single").click(function () {
           $("#subform").html("<%=j render(:partial => "form_single", :locals => {:f => f}) %>");
         });
-        $("#depot_typies_much").click(function () {
+        $("#depot_typies_multiple").click(function () {
           $("#subform").html("<%=j render(:partial => "form_much", :locals =>{:f => f}) %>");
         });
-        $("#depot_typies_judge").click(function () {
+        $("#depot_typies_judgment").click(function () {
           $("#subform").html("<%=j render(:partial => "form_judge", :locals => {:f => f}) %>");
         });
       });

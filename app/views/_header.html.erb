@@ -8,8 +8,8 @@
     <div class="btn-toolbar">
       <div class="btn-group">
         <a href ="/categories" class="btn"><i class="icon-th"></i> 题库</a>
-      <a class="btn">2</a>
-    <a class="btn">3</a>
+        <a class="btn">2</a>
+        <a class="btn">3</a>
       </div>
       <div class="btn-group">
         <a href="/circles" class="btn"><i class="icon-plus"></i> 圈子</a>
@@ -33,16 +33,14 @@
         <button class="btn"><%= current_user.name %></button>
         <%= link_to raw('<i class="icon-pencil"></i> edit profile'), edit_user_path(current_user), :class => "btn" %>
       </div>
-
-      <% elsif ["categories","depots"].include? self.controller_name %>
-        <div class="btn-group">
-          <a href="/depots" class="btn"><i class="icon-th"></i> 库</a>
-          <%= link_to "新建", new_depot_path, :class => "btn" %>
-
-
-    <% end %>
+    <% elsif ["categories","depots","assignments"].include? self.controller_name %>
+      <div class="btn-group">
+        <a href="/depots" class="btn"><i class="icon-th"></i> 库</a>
+        <%= link_to "新建", new_depot_path, :class => "btn" %>
+        <%= link_to "布置新作业", new_assignment_path, :class => "btn" %>
+      <% end %>
+    </div>
   </div>
-<% else %>
-  <%= render :partial => "/sessions/header" %>
-<% end %>
-
+  <% else %>
+    <%= render :partial => "/sessions/header" %>
+  <% end %>

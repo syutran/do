@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @assignment.title %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @assignment.user_id %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @assignment.category_id %>
+</p>
+
+<p>
+  <b>Circle:</b>
+  <%= @assignment.circle_id %>
+</p>
+
+<p>
+  <b>Typies:</b>
+  <%= @assignment.typies %>
+</p>
+
+<p>
+  <b>Timelimit:</b>
+  <%= @assignment.timelimit %>
+</p>
+
+<p>
+  <b>Validate:</b>
+  <%= @assignment.validate %>
+</p>
+
+<p>
+  <b>Invalidate:</b>
+  <%= @assignment.invalidate %>
+</p>
+
+<p>
+  <b>Discription:</b>
+  <%= @assignment.discription %>
+</p>
+
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

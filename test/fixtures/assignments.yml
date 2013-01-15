@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  user_id: 1
+  category_id: 1
+  circle_id: 1
+  typies: MyString
+  timelimit: 1
+  validate: 2013-01-15 15:39:54
+  invalidate: 2013-01-15 15:39:54
+  discription: MyText
+
+two:
+  title: MyString
+  user_id: 1
+  category_id: 1
+  circle_id: 1
+  typies: MyString
+  timelimit: 1
+  validate: 2013-01-15 15:39:54
+  invalidate: 2013-01-15 15:39:54
+  discription: MyText
