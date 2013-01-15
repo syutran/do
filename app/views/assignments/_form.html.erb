@@ -29,14 +29,17 @@
       <div class="controls">
         <%= f.hidden_field :typies,:value => "homework" %>
         <%= f.hidden_field :timelimit,:value => 0 %>
-      <%= f.datetime_select :validate %>
-    </div>
+        <%= f.text_field :validate_date, :class=>"datepicker", :size => 10, :maxlength => 10 %><%= f.text_field :validate_time, :size => 5, :maxlength => 5 %>
+      </div>
     </div>
     <div class="control-group">
       <label class = "control-label">失效时间</label>
       <div class="controls">
-      <%= f.datetime_select :invalidate %>
-    </div>
+        <div class-"input-append date form_datetime" data-date="2012-12-21T15:25:00Z">
+          <%= f.text_field :invalidate, :id=>"datetimepicker" %><span class="add-on"><i class="icon-remove"></i></span>
+          <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+      </div>
     </div>
     <div class="control-group">
       <label class="control-label">说明</label>
@@ -46,8 +49,21 @@
     </div>
     <div class="control-group">
       <div class="controls">
-    <div class="actions">
-      <%= f.submit %>
-</div></div></div>
+        <div class="actions">
+          <%= f.submit %>
+    </div></div></div>
   </fieldset>
 <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("#datetimepicker").datetimepicker({
+format: 'yyyy-mm-dd hh:ii'
+});
+  $(".form_datetime").datetimepicker({
+format: "yyyy MM dd - hh:ii",
+autoclose: true,
+todayBtn: true,
+minuteStep: 10
+});
+  });
+</script>

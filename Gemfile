@@ -38,6 +38,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'debugger'
 gem 'anjlab-bootstrap-rails', '>=2.1', :require => 'bootstrap-rails'
 # gem 'bootstrap-will_paginate', '0.0.3'
+gem 'jquery-ui-rails'
 gem 'bootstrap_helper', "2.0.0.1"
 gem 'bootstrap-datepicker-rails'
 gem 'paperclip', '~> 3.0'
