@@ -37,10 +37,13 @@
       <div class="btn-group">
         <a href="/depots" class="btn"><i class="icon-th"></i> 库</a>
         <%= link_to "新建", new_depot_path, :class => "btn" %>
-        <%= link_to "布置新作业", new_assignment_path, :class => "btn" %>
+      </div>
+      <div class="btn-group">
+        <%= link_to "作业本", assignments_path, :class => "btn" %>
+        <%= link_to "新作业", new_assignment_path, :class => "btn" %>
+      </div>
       <% end %>
     </div>
-  </div>
   <% else %>
     <%= render :partial => "/sessions/header" %>
   <% end %>

@@ -28,17 +28,20 @@
       <label class="control-label">开始时间</label>
       <div class="controls">
         <%= f.hidden_field :typies,:value => "homework" %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :timelimit,:value => 0 %>
-        <%= f.text_field :validate_date, :class=>"datepicker", :size => 10, :maxlength => 10 %><%= f.text_field :validate_time, :size => 5, :maxlength => 5 %>
+        <div class="input-append date" id="validate">
+        <%= f.text_field :validate %>
+        <span class="add-on">
+          <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+        </span>
+      </div>
       </div>
     </div>
     <div class="control-group">
-      <label class = "control-label">失效时间</label>
+      <label class = "control-label">有效时间（分钟）</label>
       <div class="controls">
-        <div class-"input-append date form_datetime" data-date="2012-12-21T15:25:00Z">
-          <%= f.text_field :invalidate, :id=>"datetimepicker" %><span class="add-on"><i class="icon-remove"></i></span>
-          <span class="add-on"><i class="icon-th"></i></span>
-        </div>
+          <%= f.text_field :valitime %>
       </div>
     </div>
     <div class="control-group">
@@ -55,15 +58,12 @@
   </fieldset>
 <% end %>
 <script type="text/javascript">
-  $(document).ready(function(){
-      $("#datetimepicker").datetimepicker({
-format: 'yyyy-mm-dd hh:ii'
-});
-  $(".form_datetime").datetimepicker({
-format: "yyyy MM dd - hh:ii",
-autoclose: true,
-todayBtn: true,
-minuteStep: 10
-});
+  $(function(){
+      $("#validate>input").datetimepicker({
+        language: 'zh-CN'
+      });
+      $("#invalidate>input").datetimepicker({
+        language: 'zh-CN'
+     });
   });
-</script>
+    </script>

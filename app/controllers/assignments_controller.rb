@@ -2,7 +2,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.json
   def index
-    @assignments = Assignment.all
+    @assignments = current_user.assignments.all
 
     respond_to do |format|
       format.html # index.html.erb

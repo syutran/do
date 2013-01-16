@@ -1,39 +1,20 @@
 <h1>Listing assignments</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>User</th>
-    <th>Category</th>
-    <th>Circle</th>
-    <th>Typies</th>
-    <th>Timelimit</th>
-    <th>Validate</th>
-    <th>Invalidate</th>
-    <th>Discription</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @assignments.each do |assignment| %>
-  <tr>
-    <td><%= assignment.title %></td>
-    <td><%= assignment.user_id %></td>
-    <td><%= assignment.category_id %></td>
-    <td><%= assignment.circle_id %></td>
-    <td><%= assignment.typies %></td>
-    <td><%= assignment.timelimit %></td>
-    <td><%= assignment.validate %></td>
-    <td><%= assignment.invalidate %></td>
-    <td><%= assignment.discription %></td>
-    <td><%= link_to 'Show', assignment %></td>
-    <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-    <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="media">
+    <a class="pull-left" href="#">
+      <img class="media-object" data-src="holder.js/64x64">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= assignment.title %>
+      </h4>
+      <div class="media">
+    <%= assignment.circle_id %>，
+    <%= DateTime.parse(assignment.validate.to_s).strftime("%Y年%m月%d日%H时%M分").to_s %>开始生效，
+    <%= assignment.invalidate %>结束。<br />
+    <%= assignment.discription %>
+    <%= link_to 'Show', assignment,:class=>"btn" %>
+    <%= link_to 'Edit', edit_assignment_path(assignment),:class=>"btn" %>
+    <%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?'},:class=>"btn" %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Assignment', new_assignment_path %>
