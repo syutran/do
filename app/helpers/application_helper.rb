@@ -1,3 +1,4 @@
+# encoding: utf-8
 module ApplicationHelper
   def avatar_url(user,size)
     if user.avatar.present?
@@ -11,5 +12,8 @@ module ApplicationHelper
 
   def user_categories(user)
     user.categories.all.each { |c| c.ancestry = c.ancestry.to_s + (c.ancestry != nil ? "/" : '') + c.id.to_s}.sort {|x,y| x.ancestry <=> y.ancestry}.map{ |c| ["->" * (c.depth - 1) + c.title,c.id] }
+  end
+  def datetime_to_cn(datetime)
+    DateTime.parse(datetime.to_s).strftime("%Y年%m月%d日%H时%M分").to_s
   end
 end

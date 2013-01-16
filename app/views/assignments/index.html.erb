@@ -9,12 +9,15 @@
       <h4 class="media-heading">
         <%= assignment.title %>
       </h4>
-      <div class="media">
     <%= assignment.circle_id %>，
-    <%= DateTime.parse(assignment.validate.to_s).strftime("%Y年%m月%d日%H时%M分").to_s %>开始生效，
-    <%= assignment.invalidate %>结束。<br />
-    <%= assignment.discription %>
+    <span class="label label-success"><%= DateTime.parse(assignment.validate.to_s).strftime("%Y年%m月%d日%H时%M分").to_s %>生效</span>
+    <span class="label label-important"> <%= datetime_to_cn assignment.invalidate %>结束</span><br />
+    <p><%= assignment.discription %></p>
+    <div>
     <%= link_to 'Show', assignment,:class=>"btn" %>
     <%= link_to 'Edit', edit_assignment_path(assignment),:class=>"btn" %>
     <%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?'},:class=>"btn" %>
+  </div>
+  </div>
+</div>
 <% end %>
