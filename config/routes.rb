@@ -1,13 +1,9 @@
 Do::Application.routes.draw do
-  resources :assignments
-
-
+  resources :assignments do
+    get :assign, :on => :member 
+  end
   resources :depots
-
-
   resources :categories
-
-
   # get "sessions/new"
 
   # get "sessions/create"

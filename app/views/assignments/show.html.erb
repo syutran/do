@@ -1,50 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @assignment.title %>
-</p>
+<h4>Listing assignments</h4>
 
-<p>
-  <b>User:</b>
-  <%= @assignment.user_id %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @assignment.category_id %>
-</p>
-
-<p>
-  <b>Circle:</b>
-  <%= @assignment.circle_id %>
-</p>
-
-<p>
-  <b>Typies:</b>
-  <%= @assignment.typies %>
-</p>
-
-<p>
-  <b>Timelimit:</b>
-  <%= @assignment.timelimit %>
-</p>
-
-<p>
-  <b>Validate:</b>
-  <%= @assignment.validate %>
-</p>
-
-<p>
-  <b>Invalidate:</b>
-  <%= @assignment.invalidate %>
-</p>
-
-<p>
-  <b>Discription:</b>
-  <%= @assignment.discription %>
-</p>
-
-
-<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-<%= link_to 'Back', assignments_path %>
+  <div class="media">
+    <a class="pull-left" href="#">
+      <img class="media-object" data-src="holder.js/64x64">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= @assignment.title %>
+      </h4>
+    <%= @assignment.circle_id %>，
+    <span class="label label-success"><%= DateTime.parse(@assignment.validate.to_s).strftime("%Y年%m月%d日%H时%M分").to_s %>生效</span>
+    <span class="label label-important"> <%= datetime_to_cn @assignment.invalidate %>结束</span><br />
+    <p><%= @assignment.discription %></p>
+    <div>
+    <%= link_to 'Show', @assignment,:class=>"btn" %>
+    <%= link_to 'Edit', edit_assignment_path(@assignment),:class=>"btn" %>
+    <%= link_to 'Destroy', @assignment, method: :delete, data: { confirm: 'Are you sure?'},:class=>"btn" %>
+    <%= link_to '添加题目', assign_assignment_path(@assignment), :class => "btn",:remote => true %>
+  </div>
+  </div>
+</div>
+<div id="list">
+</div>

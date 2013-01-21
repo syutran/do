@@ -80,4 +80,11 @@ class AssignmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def assign
+    @assignment = Assignment.find(params[:id])
+    @depots = @assignment.user.depots.all
+    respond_to do |format|
+      format.js
+    end
+  end
 end
