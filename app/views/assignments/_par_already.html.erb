@@ -1,4 +1,4 @@
-添加新题目
+已有题目
 <% @depots.each do |depot| %>
   <div class="media" id="dep_<%= depot.id %>">
     <div class="pull-left">
@@ -7,7 +7,7 @@
       <h4 class="media-heading">
       <%= depot.title %>
     </h4>
-    <%= link_to "添加", puto_assignment_path(:depot=>depot,:assignment=>@assignment), :class=>"btn", :remote => true %>
+    <%= link_to "移除", putout_assignment_path(:depot=>depot,:assignment=>@assignment), :class=>"btn", :remote => true %>
   </div>
 </div>
 <% end %>

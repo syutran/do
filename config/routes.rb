@@ -1,6 +1,9 @@
 Do::Application.routes.draw do
   resources :assignments do
     get :assign, :on => :member 
+    get :puto, :on => :member
+    get :already, :on => :member
+    get :putout, :on => :member
   end
   resources :depots
   resources :categories

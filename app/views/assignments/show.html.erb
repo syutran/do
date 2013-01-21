@@ -18,6 +18,7 @@
     <%= link_to 'Show', @assignment,:class=>"btn" %>
     <%= link_to 'Edit', edit_assignment_path(@assignment),:class=>"btn" %>
     <%= link_to 'Destroy', @assignment, method: :delete, data: { confirm: 'Are you sure?'},:class=>"btn" %>
+    <%= link_to '已有题目', already_assignment_path(@assignment), :class => "btn", :remote => true %>
     <%= link_to '添加题目', assign_assignment_path(@assignment), :class => "btn",:remote => true %>
   </div>
   </div>
