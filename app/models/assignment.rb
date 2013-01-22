@@ -1,5 +1,5 @@
 class Assignment < ActiveRecord::Base
-  attr_accessible :category_id, :circle_id, :discription, :invalidate, :timelimit, :title, :typies, :user_id, :validate,:valitime
+  attr_accessible :category_id, :circle_id, :discription, :invalidate, :timelimit, :title, :typies, :user_id, :validate,:valitime, :add_homework
   validates_presence_of :title
   belongs_to :user
   # attr_accessor :validate_date, :validate_time
@@ -23,5 +23,12 @@ class Assignment < ActiveRecord::Base
   end
   def valitime=(value)
     self.invalidate = self.validate + value.to_i*60
+  end
+  def add_homework=(value)
+    if self.homework.blank?
+      self.homework = value.to_i
+    else
+      self.homework = self.homework.split(",").map{|s| s.to_i} << value.to_i
+    end
   end
 end
