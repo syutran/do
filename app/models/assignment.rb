@@ -35,8 +35,8 @@ class Assignment < ActiveRecord::Base
   def del_homework(value)
     unless self.homework.blank?
       a = self.homework.split(",").map{|s| s.to_i}
-      a = a.delete(value)
-      self.homework = a
+      a.delete(value.to_i)
+      self.homework = a.join(",")
     end
 
   end

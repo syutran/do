@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116085007) do
+ActiveRecord::Schema.define(:version => 20130123125357) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -72,6 +72,30 @@ ActiveRecord::Schema.define(:version => 20130116085007) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "readspeed"
+  end
+
+  create_table "homeworks", :force => true do |t|
+    t.integer  "sort"
+    t.integer  "depot_id"
+    t.integer  "assignment_id"
+    t.integer  "user_id"
+    t.string   "typies"
+    t.text     "title"
+    t.text     "item_a"
+    t.text     "item_b"
+    t.text     "item_c"
+    t.text     "item_d"
+    t.text     "item_e"
+    t.text     "item_f"
+    t.text     "item_g"
+    t.text     "item_h"
+    t.text     "item_i"
+    t.text     "item_j"
+    t.string   "keys"
+    t.string   "answer"
+    t.integer  "need_time"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "messages", :force => true do |t|

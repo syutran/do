@@ -1,4 +1,7 @@
 Do::Application.routes.draw do
+  resources :homeworks
+
+
   resources :assignments do
     get :assign, :on => :member 
     get :puto, :on => :member

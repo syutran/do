@@ -82,7 +82,7 @@ class AssignmentsController < ApplicationController
   end
   def assign
     @assignment = Assignment.find(params[:id])
-    if @assignment.homework
+    unless @assignment.homework.blank?
     d = @assignment.homework.split(",").map { |s| s.to_i }
       @depots = @assignment.user.depots.where("id not in (?)",d)
     else
