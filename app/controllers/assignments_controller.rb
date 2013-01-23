@@ -82,8 +82,8 @@ class AssignmentsController < ApplicationController
   end
   def assign
     @assignment = Assignment.find(params[:id])
+    if @assignment.homework
     d = @assignment.homework.split(",").map { |s| s.to_i }
-    if d.length > 0
       @depots = @assignment.user.depots.where("id not in (?)",d)
     else
       @depots = @assignment.user.depots.all
@@ -103,11 +103,11 @@ class AssignmentsController < ApplicationController
   end
   def already
     @assignment = Assignment.find(params[:id])
+    if @assignment.homework
     d = @assignment.homework.split(",").map { |s| s.to_i }
-    if d.length > 0
     @depots = @assignment.user.depots.where("id in (?)", d)
     else
-    @depots = @assignment.user.depots.where("id in (?)", d)
+    @depots = @assignment.user.depots.where("id in (?)", nil)
     end
     respond_to do |format|
       format.js
@@ -115,12 +115,7 @@ class AssignmentsController < ApplicationController
   end
   def putout
     @assignment = Assignment.find(params[:assignment])
-    if @assignment.homework.blank?
-      @assignment.homework = ""
-    end
-    a = @assignment.homework.split(",").map {|s| s.to_i}
-    a = a.delete(params[:depot].to_i)
-    @assignment.homework = a.to_s
+    @assignment.del_homework(params[:depot])
     @depot = params[:depot]
     @assignment.save
     respond_to do |format|
