@@ -15,7 +15,4 @@ class User < ActiveRecord::Base
     user.act = false
     user.active_code = Digest::SHA2.hexdigest(Time.now.to_i.to_s)
   end
-  after_create do |user|
-    UserMailer.confirm(user.email,user).deliver
-  end
 end

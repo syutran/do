@@ -16,4 +16,11 @@ module ApplicationHelper
   def datetime_to_cn(datetime)
     DateTime.parse(datetime.to_s).strftime("%Y年%m月%d日%H时%M分").to_s
   end
+  def user_face(user)
+    if user.avatar?
+      return image_tag avatar_url(user,:thumb)
+    else
+      return image_tag "default_face.jpg"
+    end
+  end
 end

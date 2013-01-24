@@ -1,11 +1,12 @@
+<ul class="thumbnails">
 <% @user.each do |user| %>
-  <div class="media">
-  <a class="pull-left" href="#"><%= image_tag avatar_url(user,:medium) %></a>
-  <div class="media-body">
-    <h4 class="media-heading"><%= user.name %></h4>
-  <%= user.email %>
+    <li class="span3">
+    <%= user_face(user) %>
+    <div class="caption">
+      <h5><%= user.name %></h5>
   <%= link_to "info", user_info_url(user_id: user.id ), class: 'btn' %> 
   <%= button_to "add_friend", circles_join_me_path(user_id: user.id), remote: true %>
     </div>
-    </div>
+  </li>
 <% end %>
+</ul>

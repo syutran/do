@@ -1,7 +1,7 @@
 <% unless current_user.blank? %>
   <div class="span4">
     <div class="btn-toolbar">
-      <%= image_tag avatar_url(current_user,:thumb), :class => "img-circle" %>
+      <%= user_face(current_user) %>
     </div>
   </div>
   <div class="span8">
@@ -19,13 +19,9 @@
       <a href="/logout" data-method="delete" class="btn"><i class="icon-off"></i> 退出系统</a>
     </div>
     <% if self.controller_name == "circles" %>
-      <div class="btn-group">
-        <a href="#" class="btn">message</a>
-        <a href="#" class="btn">message</a>
-      </div>
       <form action="/circles/search" class=" form-inline">
         <input name="query" type="text" class="input-medium search-query">
-        <button type="submit" class="btn">Search</button>
+        <button type="submit" class="btn">扫人</button>
       </form>
     <% elsif self.controller_name == "users" %>
 
