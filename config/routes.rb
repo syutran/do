@@ -1,5 +1,6 @@
 Do::Application.routes.draw do
   resources :homeworks
+  resources :messages
 
 
   resources :assignments do

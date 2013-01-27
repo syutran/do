@@ -11,9 +11,14 @@ class CirclesController < ApplicationController
 
   def join_me
     p=params[:user_id]
-    circle = Circle.where("user_id = ? and friend = ?", current_user.id, p)
+    circle = Circle.where("user_id = ? and friend = ?", current_user.id, p.to_i)
     if circle.blank?
       message = Message.new()
+      message.from_id = current_user.id
+      message.typies = "join_me"
+      message.to_id = p.to_i
+      message.message = "join me a friend!"
+      message.save
       respond_to do |format|
         format.js
       end

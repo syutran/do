@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123125357) do
+ActiveRecord::Schema.define(:version => 20130124123142) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -103,10 +103,11 @@ ActiveRecord::Schema.define(:version => 20130123125357) do
     t.integer  "to_id"
     t.string   "title"
     t.text     "message"
-    t.boolean  "valid"
+    t.boolean  "act"
     t.datetime "create_time"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "typies"
   end
 
   create_table "users", :force => true do |t|
