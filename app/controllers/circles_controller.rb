@@ -26,4 +26,7 @@ class CirclesController < ApplicationController
       render :text => "you are alredy been friends"
     end
   end
+  def add_friend
+
+  end
 end

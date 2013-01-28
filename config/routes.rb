@@ -29,7 +29,9 @@ Do::Application.routes.draw do
   resources :users
   match 'circles/search' => 'circles#search'
   match 'circles_join_me' => 'circles#join_me'
-  resources :circles
+  resources :circles do
+    get :add_friend, :on => :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +56,7 @@ Do::Application.routes.draw do
   #
   #     collection do
   #       get 'sold'
-  #     end
+  #     enhas_many :inbox, :class_name => 'Message', :foreign_keyd
   #   end
 
   # Sample resource route with sub-resources:

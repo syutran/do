@@ -14,7 +14,7 @@
       <div class="btn-group">
         <a href="/circles" class="btn"><i class="icon-plus"></i> 圈子</a>
         <%= link_to raw('<i class="icon-user"></i> 人个信息'), user_path(current_user), class: "btn" %>
-        <%= link_to current_user.messages.count.to_s,messages_path, class: "btn" %>
+        <%= link_to current_user.receiver.count.to_s,messages_path, class: "btn" if current_user.receiver.count > 0%>
       </div>
       <!-- /btn-group -->
       <a href="/logout" data-method="delete" class="btn"><i class="icon-off"></i> 退出系统</a>

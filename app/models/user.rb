@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :circles
   has_many :depots
   has_many :assignments
-  has_many :messages, :foreign_key => "to_id"
+  has_many :receiver, :class_name => 'Message', :foreign_key => "to_id"
+  has_many :sender, :class_name => 'Message', :foreign_key => "from_id"
   has_secure_password
 
   before_create do |user|

@@ -1,1 +1,9 @@
 <h4>message</h4>
+<% @messages.each do |message| %>
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <%= message.sender.name %>
+  <%= message.message %>
+  <%= button_to "加为好友", add_friend_circle_path, :class => "btn" %>
+<s/div>
+<% end %>
