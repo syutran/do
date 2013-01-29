@@ -27,6 +27,6 @@ class CirclesController < ApplicationController
     end
   end
   def add_friend
-
+    render :text => params[:m]
   end
 end

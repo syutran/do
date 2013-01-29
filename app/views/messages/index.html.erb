@@ -4,6 +4,6 @@
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <%= message.sender.name %>
   <%= message.message %>
-  <%= button_to "加为好友", add_friend_circle_path, :class => "btn" %>
-<s/div>
+  <%= button_to "加为好友", add_friend_path(:m => message.id), :class => "btn" %>
+</div>
 <% end %>

@@ -29,9 +29,8 @@ Do::Application.routes.draw do
   resources :users
   match 'circles/search' => 'circles#search'
   match 'circles_join_me' => 'circles#join_me'
-  resources :circles do
-    get :add_friend, :on => :member
-  end
+  match 'add_friend' => 'circles#add_friend'
+  resources :circles 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
