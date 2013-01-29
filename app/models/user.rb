@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "120x120>", :thumb => "80:80>", :mini => "40x40>"}
   has_many :categories
   has_many :master, :class_name => 'Circle', :foreign_key => "user_id"
-  has_many :friend, :class_name => 'Circle', :foreign_key => "friend"
+  has_many :friend, :class_name => 'Circle', :foreign_key => "friend_id"
   has_many :depots
   has_many :assignments
   has_many :receiver, :class_name => 'Message', :foreign_key => "to_id"

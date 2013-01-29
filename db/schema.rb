@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124123142) do
+ActiveRecord::Schema.define(:version => 20130129070509) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130124123142) do
   create_table "circles", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.integer  "friend"
+    t.integer  "friend_id"
     t.string   "friend_name"
     t.text     "discription"
     t.datetime "created_at",  :null => false

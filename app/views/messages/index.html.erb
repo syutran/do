@@ -1,9 +1,9 @@
 <h4>message</h4>
 <% @messages.each do |message| %>
-<div class="alert">
+  <div class="alert" id="add_f_<%= message.id %>">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <%= message.sender.name %>
   <%= message.message %>
-  <%= button_to "加为好友", add_friend_path(:m => message.id), :class => "btn" %>
+  <%= button_to "加为好友", add_friend_path(:m => message.id), remote: true, :class => "btn" %>
 </div>
 <% end %>

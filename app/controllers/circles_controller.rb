@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CirclesController < ApplicationController
   def index
     @messages = Message.find_all_by_to_id(current_user.id)
@@ -11,7 +12,7 @@ class CirclesController < ApplicationController
 
   def join_me
     p=params[:user_id]
-    circle = Circle.where("user_id = ? and friend = ?", current_user.id, p.to_i)
+    circle = Circle.where("user_id = ? and friend_id = ?", current_user.id, p.to_i)
     if circle.blank?
       message = Message.new()
       message.from_id = current_user.id
@@ -19,14 +20,26 @@ class CirclesController < ApplicationController
       message.to_id = p.to_i
       message.message = "join me a friend!"
       message.save
-      respond_to do |format|
-        format.js
-      end
-    else
-      render :text => "you are alredy been friends"
+    end
+    respond_to do |format|
+      format.js
     end
   end
   def add_friend
-    render :text => params[:m]
+    @message = Message.find(params[:m])
+    c = Circle.where(["user_id = ? and friend_id = ?", @message.to_id.to_i,@message.from_id.to_i])
+    if c.blank?
+      circle = Circle.new
+      circle.user_id = @message.to_id
+      circle.friend_id = @message.from_id
+      circle.title = "未分组"
+      circle.save
+      @message.delete
+    else
+      render :text => "yes"
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 end

@@ -1,11 +1,11 @@
 <ul class="thumbnails">
   <% @user.each do |user| %>
-    <li class="span3">
+    <li class="span3" id="join_me">
     <%= user_face(user) %>
     <div class="caption">
       <h5><%= user.name %></h5>
         <%= link_to "info", user_info_url(user_id: user.id ), class: 'btn' %> 
-        <%= button_to "add_friend", circles_join_me_path(user_id: user.id),:class => "btn btn-success", remote: true %>
+        <%= button_to "add_friend", circles_join_me_path(user_id: user.id),:class => "btn btn-success", :remote => true %>
     </div>
     </li>
   <% end %>
