@@ -2,6 +2,7 @@
 class CirclesController < ApplicationController
   def index
     @messages = Message.find_all_by_to_id(current_user.id)
+    @circles_group = current_user.master.all
   end
 
   def search

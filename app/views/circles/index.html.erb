@@ -1,6 +1,7 @@
-<%= self.controller_name %>
-
+<%= render :partial => "navbar" %>
 <% @messages.each do |m| %>
    <%= m.title %>
-
+<% end %>
+<% @circles_group.each do |cg| %>
+  <%= cg.title %>
 <% end %>
