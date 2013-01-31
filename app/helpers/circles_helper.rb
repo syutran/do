@@ -6,6 +6,7 @@ module CirclesHelper
     end
     count
   end
-  def user_circles_map
+  def user_circles_titles
+    titles = current_user.master.map {|m| m.title}
   end
 end

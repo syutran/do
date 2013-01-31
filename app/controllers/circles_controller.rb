@@ -4,11 +4,25 @@ class CirclesController < ApplicationController
     @messages = Message.find_all_by_to_id(current_user.id)
     @circles_group = current_user.master.all
   end
+  def new
+    @circle = Circle.new
+    respond_to do |format|
+      format.js
+    end
+  end
+  def create
+    @circle = Circle.new(params[:circle])
+    @circle.save
+    redirect_to :action => :index
+  end
 
   def search
     q_name = params[:query].split.map {|term| "%#{term}%"}
     q_email = params[:query]
     @user= User.where("name like ? or email = ?", q_name,q_email )
+    respond_to do |format|
+      format.js
+    end
   end
 
   def join_me

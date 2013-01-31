@@ -1,0 +1,7 @@
+new circle
+<%= form_for @circle, :url => {:controller => 'circles', :action => 'create'},:html => {:class => "form-inline"} do |f| %>
+  <%= f.label :title, "圈子命名：" %>
+  <%= f.text_field :title %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.submit "创建", :class => "btn" %>
+<% end %>
