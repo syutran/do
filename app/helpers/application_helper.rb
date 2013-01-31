@@ -18,9 +18,9 @@ module ApplicationHelper
   end
   def user_face(user)
     if user.avatar?
-      return image_tag avatar_url(user,:thumb)
+      return image_tag avatar_url(user,:mini),:size=> "40x40"
     else
-      return image_tag "default_face.jpg"
+      return image_tag "default_face.jpg", :size => "40x40"
     end
   end
 end
