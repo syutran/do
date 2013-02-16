@@ -57,4 +57,10 @@ class CirclesController < ApplicationController
       format.js
     end
   end
+  def part_list
+    @title = params[:id]
+    respond_to do |format|
+      format.js
+    end
+  end
 end

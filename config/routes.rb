@@ -30,7 +30,9 @@ Do::Application.routes.draw do
   match 'circles/search' => 'circles#search'
   match 'circles_join_me' => 'circles#join_me'
   match 'add_friend' => 'circles#add_friend'
-  resources :circles 
+  resources :circles do
+    get :part_list, :on => :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -9,7 +9,7 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 所有圈子 <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <% user_circles_titles.each do |t| %>
-          <li><a href="#"><%= t %></a></li>
+          <li><%= link_to t, part_list_circle_path(t), :remote => true %></li>
         <% end %>
       </ul>
       </li>
