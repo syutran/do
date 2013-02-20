@@ -59,6 +59,7 @@ class CirclesController < ApplicationController
   end
   def part_list
     @title = params[:id]
+    @lists = Circle.where(["user_id = ? and title = ?", current_user.id, @title])
     respond_to do |format|
       format.js
     end

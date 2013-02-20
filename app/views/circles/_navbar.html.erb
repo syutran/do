@@ -1,5 +1,4 @@
 <% content_for :navbar do %>
-  <div class="nav-collapse">
     <ul class="nav">
       <li class="active"><a href="#"><i class="icon-home"></i> 圈子<%= user_circles_count %></a></li>
       <li><%= link_to "新建", new_circle_path, :remote => true %> </li>
@@ -17,7 +16,6 @@
     <%= form_tag url_for(:controller => "circles", :action =>"search"),:method => "get",:remote=>true, :class => "navbar-search pull-right" do %>
       <input name="query" type="text" class="search-query span2" placeholder="找人">
     <% end %>
-  </div>
 <% end %>
 <script type="text/javascript">
   $(document).ready( function() {

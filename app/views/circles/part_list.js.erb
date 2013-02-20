@@ -1,1 +1,1 @@
-$("#circle_list").html("<%= @title %>")
+$("#circle_list").html("<%=j render :partial => 'users_list', :locals => { :lists => @lists } %>")
