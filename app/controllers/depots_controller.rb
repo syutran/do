@@ -81,4 +81,7 @@ class DepotsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def search
+
+  end
 end

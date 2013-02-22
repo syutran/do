@@ -1,1 +1,8 @@
-$("#search").html("<%=j render 'search' %>")
+<% if @users.length > 0 %>
+    $("#search").html("<h3>列表</h3>")
+  <% @users.each do |u| %>
+    $("#search").append("<%=j render :partial => 'user_list', :locals => {:user => u} %>")
+  <% end %>
+<% else %>
+$("#search").html("没找到任何人！")
+<% end %>

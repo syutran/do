@@ -19,7 +19,7 @@ class CirclesController < ApplicationController
   def search
     q_name = params[:query].split.map {|term| "%#{term}%"}
     q_email = params[:query]
-    @user= User.where("name like ? or email = ?", q_name,q_email )
+    @users= User.where("name like ? or email = ?", q_name,q_email )
     respond_to do |format|
       format.js
     end

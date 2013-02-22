@@ -1,9 +1,9 @@
+<%= render 'navbar' %>
 <h3>题库列表</h3>
 
 
 <% @depots.each do |depot| %>
   <div class="media">
-    <%= link_to image_tag("sm-64x64.png"), depot_path(depot),{:class=>"pull-left"} %>
     <div class="media-body">
       <h4 class="media-heading"><%= depot.category.title %></h4>
       <div class="media">
@@ -11,9 +11,9 @@
       </div>
     </div>
   </div>
-    <%= link_to 'Show', depot %>
-    <%= link_to 'Edit', edit_depot_path(depot) %>
-    <%= link_to 'Destroy', depot, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to '查看', depot %>
+    <%= link_to '编辑', edit_depot_path(depot) %>
+    <%= link_to '删除', depot, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <br />

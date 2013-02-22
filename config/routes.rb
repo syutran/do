@@ -9,7 +9,9 @@ Do::Application.routes.draw do
     get :already, :on => :member
     get :putout, :on => :member
   end
-  resources :depots
+  resources :depots do
+    get :part_list, :on => :member
+  end
   resources :categories
   # get "sessions/new"
 
@@ -28,6 +30,7 @@ Do::Application.routes.draw do
   get 'user_act' => "users#user_act"
   resources :users
   match 'circles/search' => 'circles#search'
+  match 'depots/search' => 'depots#search'
   match 'circles_join_me' => 'circles#join_me'
   match 'add_friend' => 'circles#add_friend'
   resources :circles do
